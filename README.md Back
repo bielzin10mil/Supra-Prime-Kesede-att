@@ -1,176 +1,214 @@
-# SupraPrime Backend
+# SupraPrime Academia
 
-Este é o backend do projeto SupraPrime, uma aplicação para gerenciamento de usuários e produtos.
+## Descrição do Projeto
+O projeto SupraPrime Academia é uma plataforma de e-commerce dedicada à venda de suplementos e equipamentos para fitness. A aplicação visa proporcionar uma experiência de compra fluida e intuitiva, permitindo que usuários naveguem, selecionem e adquiram produtos de forma eficiente e segura.
+
+### Objetivos
+- **Facilitar a compra** de suplementos e equipamentos de fitness.
+- **Oferecer uma interface amigável** e adaptada a diferentes dispositivos.
+- **Gerenciar eficientemente** o inventário e os usuários.
+- **Garantir a segurança** na autenticação e nas transações.
+
+## Funcionalidades
+- **Autenticação**: Login, registro e logout de usuários.
+- **Gerenciamento de Produtos**: Adicionar, editar, remover e listar produtos.
+- **Gerenciamento de Usuários**: Adicionar, editar, remover e listar usuários.
+- **Carrinho de Compras**: Adicionar, remover e atualizar produtos no carrinho.
+- **Histórico de Compras**: Visualizar o histórico de compras dos clientes.
+- **Design Responsivo**: Layout adaptado para diferentes dispositivos (desktop e mobile).
+
+## Tecnologias Utilizadas
+- **Frontend**:
+  - HTML5
+  - CSS3
+  - JavaScript
+  - Bootstrap 4 para responsividade
+  - Font Awesome para ícones
+- **Backend**:
+  - PHP para lógica de servidor
+- **Banco de Dados**:
+  - MySQL
+- **Ferramentas**:
+  - XAMPP para ambiente de desenvolvimento local
 
 ## Estrutura do Projeto
+- **index.php**: Página principal exibindo produtos em destaque.
+- **view/**: Diretório contendo as páginas de visualização como produtos, sobre, cadastro e login.
+- **css/**: Arquivos de estilo CSS.
+- **JS/**: Scripts JavaScript para funcionalidades dinâmicas.
 
-
-## Configuração
+## Como Executar o Projeto
 
 ### Pré-requisitos
+- XAMPP ou outro servidor local com suporte a PHP e MySQL.
+- Navegador web atualizado.
 
-1. **XAMPP**: Certifique-se de ter o XAMPP instalado em sua máquina. Você pode baixar o XAMPP [aqui](https://www.apachefriends.org/index.html).
+### Passos para Executar
 
-### Passos para Configuração
-
-1. **Clone o repositório**:
-    ```sh
+1. **Clone os repositórios do frontend e backend**:
+    ```bash
+    git clone https://github.com/lucastamashirolyt/SupraPrime.git
     git clone https://github.com/lucastamashirolyt/SupraPrime_backend.git
-    cd SupraPrime_backend
     ```
 
-2. **Mover o projeto para o diretório do XAMPP**:
-    - Copie o diretório clonado para o diretório `htdocs` do XAMPP. O caminho padrão é `C:\xampp\htdocs` no Windows.
+2. **Configure o servidor local**:
+    - Coloque os arquivos do frontend na pasta `htdocs` do XAMPP:
+      ```bash
+      mv "C:\xampp\htdocs\SupraPrime"
+      ```
+    - Coloque os arquivos do backend na pasta `htdocs` do XAMPP:
+      ```bash
+      mv "C:\xampp\htdocs\backend"
+      ```
 
-3. **Configurar o banco de dados**:
-    - Abra o arquivo `api/config.php` e configure as credenciais do banco de dados:
-    ```php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "auth_app"; // Atualize conforme necessário
+3. **Configure o banco de dados**:
+    - Crie um banco de dados MySQL chamado `auth_app`.
+    - Importe o arquivo `data` para dentro de 'C:xampp/mysql' que está localizado na pasta `backend` para criar as tabelas necessárias.
+
+4. **Configure os arquivos de conexão com o banco de dados**:
+    - No backend, edite o arquivo `config.php` com as credenciais do seu banco de dados:
+      ```php - Exemplo da configuração do config.php com banco de dados abaixo:
+      <?php
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "auth_app";
+
+      // Cria a conexão
+      $conn = new mysqli($servername, $username, $password, $dbname);
+
+      // Verifica a conexão
+      if ($conn->connect_error) {
+          die("Conexão falhou: " . $conn->connect_error);
+      }
+      ?>
+      ```
+
+5. **Inicie o servidor Apache e MySQL pelo painel de controle do XAMPP**.
+
+6. **Acesse o projeto**:
+    - Abra o navegador e acesse `http://localhost/supra-prime-academia-frontend`.
+
+### Passos para Executar Ngrok (Opcional)
+1. **Iniciar o Ngrok**:
+    - No terminal, navegue até a pasta onde você extraiu o ngrok.
+    - Execute o comando para expor o servidor local na porta correta. Se o Apache estiver rodando na porta 80, use:
+      ```sh
+      ngrok http 80
+      ```
+
+2. **Obtenha o URL público**:
+    - O ngrok fornecerá um URL público (algo como `http://abcd1234.ngrok.io`). Este URL será usado para acessar o seu servidor local pela internet.
+
+3. **Testar a Conexão**:
+    - Acesse o URL público fornecido pelo ngrok no seu navegador e verifique se o seu projeto está funcionando corretamente.
+    - Certifique-se de que todas as funcionalidades (login, registro, carrinho de compras, etc.) estão funcionando como esperado.
+
+## Agradecimentos
+Agradecemos a todos que contribuíram direta ou indiretamente para o desenvolvimento deste projeto:
+- Inspiração: Projetos de e-commerce que serviram de base.
+- Suporte: Equipe de mentores, video aulas online e colegas que ofereceram feedback valioso.
+
+# SupraPrime Academia
+
+## Descrição do Projeto
+O projeto SupraPrime Academia é uma plataforma de e-commerce dedicada à venda de suplementos e equipamentos para fitness. A aplicação visa proporcionar uma experiência de compra fluida e intuitiva, permitindo que usuários naveguem, selecionem e adquiram produtos de forma eficiente e segura.
+
+### Objetivos
+- **Facilitar a compra** de suplementos e equipamentos de fitness.
+- **Oferecer uma interface amigável** e adaptada a diferentes dispositivos.
+- **Gerenciar eficientemente** o inventário e os usuários.
+- **Garantir a segurança** na autenticação e nas transações.
+
+## Funcionalidades
+- **Autenticação**: Login, registro e logout de usuários.
+- **Gerenciamento de Produtos**: Adicionar, editar, remover e listar produtos.
+- **Gerenciamento de Usuários**: Adicionar, editar, remover e listar usuários.
+- **Carrinho de Compras**: Adicionar, remover e atualizar produtos no carrinho.
+- **Histórico de Compras**: Visualizar o histórico de compras dos clientes.
+- **Design Responsivo**: Layout adaptado para diferentes dispositivos (desktop e mobile).
+
+## Tecnologias Utilizadas
+- **Frontend**:
+  - HTML5
+  - CSS3
+  - JavaScript
+  - Bootstrap 4 para responsividade
+  - Font Awesome para ícones
+- **Backend**:
+  - PHP para lógica de servidor
+- **Banco de Dados**:
+  - MySQL
+- **Ferramentas**:
+  - XAMPP para ambiente de desenvolvimento local
+
+## Estrutura do Projeto
+- **index.php**: Página principal exibindo produtos em destaque.
+- **view/**: Diretório contendo as páginas de visualização como produtos, sobre, cadastro e login.
+- **backend/**: Diretório com a lógica de backend, incluindo APIs e configuração do banco de dados.
+- **css/**: Arquivos de estilo CSS.
+- **JS/**: Scripts JavaScript para funcionalidades dinâmicas.
+
+## Como Executar o Projeto
+
+### Pré-requisitos
+- XAMPP ou outro servidor local com suporte a PHP e MySQL.
+- Navegador web atualizado.
+
+### Passos para Executar
+1. **Clone o repositório**:
+    ```bash
+    git clone https://github.com/seu-usuario/supra-prime-academia.git
     ```
+2. **Configure o banco de dados**:
+    - Crie um banco de dados MySQL chamado `auth_app`.
+    - Importe o arquivo `auth_app.sql` localizado na pasta `backend/database` para criar as tabelas necessárias.
+3. **Configure o servidor local**:
+    - Coloque os arquivos do projeto na pasta `htdocs` do XAMPP.
+    - Inicie o servidor Apache e MySQL pelo painel de controle do XAMPP.
+4. **Acesse o projeto**:
+    - Abra o navegador e acesse `http://localhost/supra-prime-academia`.
 
-4. **Iniciar o XAMPP**:
-    - Abra o painel de controle do XAMPP.
-    - Inicie os módulos **Apache** e **MySQL** clicando em "Start" ao lado de cada um.
+### Passos para Executar Ngrok
+1. **Iniciar o Ngrok**:
+    -No terminal, navegue até a pasta onde você extraiu o ngrok.
+    -Execute o comando para expor o servidor local na porta correta. Se o Apache estiver rodando na porta 80, use: ngrok http 80
+2. **Configure o banco de dados**:
+    -O ngrok fornecerá um URL público (algo como http://abcd1234.ngrok.io). Este URL será usado para acessar o seu servidor local pela internet.
+3. **Testar a Conexão**:
+    -Acesse o URL público fornecido pelo ngrok no seu navegador e verifique se o seu projeto está funcionando corretamente.
+    -Certifique-se de que todas as funcionalidades (login, registro, carrinho de compras, etc.) estão funcionando como esperado.
 
-5. **Testar a conexão com o banco de dados**:
-    - No terminal, execute:
-    ```sh
-    php api/testConfig.php
-    ```
-    - Você deve ver a mensagem "Conexão com o banco de dados estabelecida com sucesso!" se tudo estiver configurado corretamente.
 
-## Endpoints da API
+## Agradecimentos
+Agradecemos a todos que contribuíram direta ou indiretamente para o desenvolvimento deste projeto:
+- **Inspiração**: Projetos de e-commerce que serviram de base.
+- **Suporte**: Equipe de mentores e colegas que ofereceram feedback valioso.
 
-### Usuários
+## Contato
+Para quaisquer dúvidas ou sugestões, entre em contato conosco:
+- **Lucas Yuji**: lucastamashirolyt@gmail.com
+- **Gustavo Pascoal**: gustavopascoal@gmail.com
+- **Gabriel Silveira**: gabrielsilveira@gmail.com
 
-- **GET /api/getUserById.php?id={id}**
-    - Retorna os detalhes de um usuário pelo ID.
-    - Exemplo de resposta:
-    ```json
-    {
-        "success": true,
-        "user": {
-            "id": 1,
-            "nome": "John Doe",
-            "email": "john@example.com",
-            "role": "admin"
-        }
-    }
-    ```
+## Licença
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-- **PUT /api/editUser.php**
-    - Atualiza os detalhes de um usuário.
-    - Exemplo de corpo da requisição:
-    ```json
-    {
-        "id": 1,
-        "nome": "John Doe",
-        "email": "john@example.com",
-        "role": "admin"
-    }
-    ```
+## Contribuição
 
-- **POST /api/register.php**
-    - Registra um novo usuário.
-    - Exemplo de corpo da requisição:
-    ```json
-    {
-        "nome": "John Doe",
-        "email": "john@example.com",
-        "senha": "password123",
-        "telefone": "123456789",
-        "data_nascimento": "1990-01-01",
-        "genero": "M",
-        "endereco1": "Rua A",
-        "endereco2": "Apto 1",
-        "pais": "Brasil",
-        "cidade": "São Paulo",
-        "regiao": "SP",
-        "cep": "12345-678"
-    }
-    ```
+### Como Contribuir
+1. **Fork este repositório**.
+2. **Crie uma branch** para sua feature (`git checkout -b feature/NovaFeature`).
+3. **Commit suas mudanças** (`git commit -m 'Adiciona nova feature'`).
+4. **Push para a branch** (`git push origin feature/NovaFeature`).
+5. **Abra um Pull Request**.
 
-- **DELETE /api/delete_user.php**
-    - Deleta um usuário pelo ID.
-    - Exemplo de corpo da requisição:
-    ```json
-    {
-        "id": 1
-    }
-    ```
-
-### Produtos
-
-- **GET /api/getAllProducts.php**
-    - Retorna todos os produtos com paginação.
-    - Parâmetros opcionais: `page`, `start_id`, `end_id`.
-
-- **GET /api/getProductsById.php?id={id}**
-    - Retorna os detalhes de um produto pelo ID.
-
-- **POST /api/createProduct.php**
-    - Cria um novo produto.
-    - Exemplo de corpo da requisição:
-    ```json
-    {
-        "nome": "Produto A",
-        "preco": 99.99,
-        "imagem": "img/produto_a.png"
-    }
-    ```
-
-- **PUT /api/updateProduct.php**
-    - Atualiza os detalhes de um produto.
-    - Exemplo de corpo da requisição:
-    ```json
-    {
-        "id": 1,
-        "nome": "Produto A",
-        "preco": 99.99,
-        "imagem": "img/produto_a.png"
-    }
-    ```
-
-- **DELETE /api/deleteProduct.php?id={id}**
-    - Deleta um produto pelo ID.
-
-### Autenticação
-
-- **POST /api/loginAPI.php**
-    - Realiza o login de um usuário.
-    - Exemplo de corpo da requisição:
-    ```json
-    {
-        "email": "john@example.com",
-        "password": "password123"
-    }
-    ```
-
-- **GET /api/logout.php**
-    - Realiza o logout do usuário.
-
-### Compras
-
-- **POST /api/registerPurchase.php**
-    - Registra uma compra.
-    - Exemplo de corpo da requisição:
-    ```json
-    {
-        "cart": [
-            { "id": 1, "quantidade": 2 },
-            { "id": 2, "quantidade": 1 }
-        ]
-    }
-    ```
+### Regras de Contribuição
+- Mantenha o código limpo e bem documentado.
+- Siga as convenções de nomenclatura e estrutura existentes.
+- Teste suas mudanças antes de enviar.
 
 <h1 align="center">  Autores </h1>
 
 | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114181346?v=4" width=115><br><sub>Lucas Yuji</sub>](https://github.com/lucastamashirolyt) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/142549426?v=4" width=115><br><sub>Gabriel Silveira</sub>](https://github.com/bielzin10mil) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/142549465?v=4" width=115><br><sub>Gustavo Pascoal</sub>](https://github.com/gupascoal) |
 | :---: | :---: | :---: |
-
-## Licença
-
-Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
